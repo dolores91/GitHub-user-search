@@ -3,9 +3,13 @@ export default function History({ users }) {
     <div className="history">
       <h4>Search history</h4>
       <ul>
-        <li>
-          <a href="#"> @user1 </a>
-        </li>
+        {users.map((user, index) => (
+          <li key={index}>
+            <a href={`https://github.com/${user}`} target="_blank">
+              {user}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );

@@ -8,8 +8,6 @@ const getUser = async(user) =>{
 
 }
 
-
-
 export default function DetaildCard({ user, handleHistory }) {
 const {isLoading, isError, isSuccess, data, error }= useQuery(
   ["get_user", user], ()=> getUser(user))
@@ -49,16 +47,16 @@ const {isLoading, isError, isSuccess, data, error }= useQuery(
         </div>
         <ul>
           <li>
-            <i className="fas fa-map-marker-alt"> "Not available"</i>
+            <i className="fas fa-map-marker-alt"> {data.location!=null ? <>{data.location}</>: <> No disponible</> }</i>
           </li>
           <li>
-            <i className="fab fa-twitter"> "Not available"</i>{" "}
+            <i className="fab fa-twitter"> {data.twitter_username!=null ? <>{ data.twitter_username}</>: <> No disponible</> }</i>{" "}
           </li>
           <li>
-            <i className="fas fa-link">"Not available"</i>{" "}
+            <i className="fas fa-link">{data.blog!=="" ? <>{ data.blog}</>: <> No disponible</> }</i>{" "}
           </li>
           <li>
-            <i className="fas fa-building"> "Not available" </i>{" "}
+            <i className="fas fa-building"> {data.company!=null ? <>{ data.company}</>: <> No disponible</> } </i>{" "}
           </li>
         </ul>
       </div>

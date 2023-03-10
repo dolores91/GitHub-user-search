@@ -75,7 +75,7 @@ function App() {
         <DetailCard user={state.searchHistory[state.searchHistory.length-1]}/>)
       }
       </div>
-      <History />
+      <History users={state.searchHistory}/>
     </div>
     </QueryClientProvider>
   );
